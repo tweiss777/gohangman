@@ -49,10 +49,8 @@ func Setup(wordToStore *string) {
 	mapSetup()
 }
 
-func CheckIfExists(input string) bool {
-	err := errors.New("Not implemented")
-	fmt.Println(err)
-	return false
+func CheckIfExists(input string) (bool, int) {
+	return false, 0
 }
 
 func InputValid(input *string) bool {

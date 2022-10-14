@@ -11,6 +11,7 @@ var unSolved bool = false
 
 
 func main() {
+
 	field := [3]string{"a", "b", "c"}
 	fmt.Println(field)
 	reader := bufio.NewReader(os.Stdin)
@@ -26,7 +27,11 @@ func main() {
 			fmt.Println("invalid input")
 			continue
 		}
+		var found, occurences = hangman.CheckIfExists(text)
 		
+		if found {
+			result := fmt.Sprintf()
+		}
 
 	}
 

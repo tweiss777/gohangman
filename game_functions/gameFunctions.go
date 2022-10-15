@@ -49,8 +49,23 @@ func Setup(wordToStore *string) {
 	mapSetup()
 }
 
+func getIndexOfChar(input string, list []string) int{
+	for i,l := range list{
+		if input == l {
+			return i
+		}
+	}
+	return -1
+}
+
 func CheckIfExists(input string) (bool, int) {
-	return false, 0
+	var exists = occurences[input] >= 1
+	if !exists {
+		return false, 0
+	}
+	var indexOfChar = getIndexOfChar(input, letters)
+	fmt.Println(indexOfChar)
+	return true, 1
 }
 
 func InputValid(input *string) bool {
@@ -62,4 +77,8 @@ func InputValid(input *string) bool {
 		return false
 	}
 	return true
+}
+
+func PrintStats(){
+
 }

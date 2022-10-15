@@ -9,7 +9,6 @@ import (
 
 var unSolved bool = false
 
-
 func main() {
 
 	field := [3]string{"a", "b", "c"}
@@ -28,9 +27,12 @@ func main() {
 			continue
 		}
 		var found, occurences = hangman.CheckIfExists(text)
-		
+
 		if found {
-			result := fmt.Sprintf()
+			result := fmt.Sprintf("found %d occurences of %s",occurences,text)
+			fmt.Println(result)
+		} else{
+			fmt.Println()
 		}
 
 	}

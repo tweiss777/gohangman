@@ -1,12 +1,12 @@
 package hangman
 
 import (
-	"errors"
+	// "errors"
 	"fmt"
 	"strings"
 )
 
-const maxGuesses = 10
+const MaxGuesses = 10
 
 var word *string
 var wordLen int
@@ -42,15 +42,15 @@ func Setup(wordToStore *string) {
 	fmt.Println(correctLetters)
 	// append blank field to the correct spot
 	for i := 0; i < wordLen; i++ {
-		correctLetters = append(correctLetters, "")
+		correctLetters = append(correctLetters, "_")
 	}
 	fmt.Println("correct letters in array", correctLetters)
 	// add letter and count into map
 	mapSetup()
 }
 
-func getIndexOfChar(input string, list []string) int{
-	for i,l := range list{
+func getIndexOfChar(input string, list []string) int {
+	for i, l := range list {
 		if input == l {
 			return i
 		}
@@ -59,12 +59,14 @@ func getIndexOfChar(input string, list []string) int{
 }
 
 func CheckIfExists(input string) (bool, int) {
+	//	check in the board if the input exists
 	var exists = occurences[input] >= 1
 	if !exists {
 		return false, 0
 	}
 	var indexOfChar = getIndexOfChar(input, letters)
 	fmt.Println(indexOfChar)
+	correctLetters[indexOfChar] = input
 	return true, 1
 }
 
@@ -79,6 +81,13 @@ func InputValid(input *string) bool {
 	return true
 }
 
-func PrintStats(){
+func PrintStats() {
+	//Print the correct letters to the console
+	fmt.Println("correct letters")
+	fmt.Println(correctLetters)
+
+	//Print the number of guesses to the console
+	fmt.Println("Number of guesses remaining")
+	fmt.Println(numberOfGuesses)
 
 }

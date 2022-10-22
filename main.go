@@ -11,8 +11,6 @@ var unSolved bool = false
 
 func main() {
 
-	field := [3]string{"a", "b", "c"}
-	fmt.Println(field)
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("--- WELCOME TO HANGMAN ---")
 	fmt.Println("--- ENTER A WORD ---")
@@ -31,9 +29,12 @@ func main() {
 		if found {
 			result := fmt.Sprintf("found %d occurences of %s",occurences,text)
 			fmt.Println(result)
+
 		} else{
-			fmt.Println()
+
 		}
+		hangman.PrintStats()
+
 
 	}
 

@@ -19,6 +19,28 @@ var numberOfGuesses int = 0
 // all the letters in the array split into a string
 var letters []string
 
+func IncrememntGuesses() {
+	numberOfGuesses++
+}
+
+// checks for underscore in text
+func underScoreExists() bool {
+	for _, ch := range correctLetters {
+		if ch == "_" {
+			return true
+		}
+	}
+	return false
+}
+
+func CheckIfGameOver() bool {
+	if numberOfGuesses > MaxGuesses || underScoreExists() {
+		return true
+	}
+	return false
+
+}
+
 // do initial setup of the game
 func mapSetup() {
 	occurences = make(map[string]int)

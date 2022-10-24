@@ -27,14 +27,15 @@ func main() {
 		var found, occurences = hangman.CheckIfExists(text)
 
 		if found {
-			result := fmt.Sprintf("found %d occurences of %s",occurences,text)
+			result := fmt.Sprintf("found %d occurences of %s", occurences, text)
 			fmt.Println(result)
 
-		} else{
-
+		} else {
+			fmt.Printf("Oops, the letter %s doesn't exist here", text)
 		}
+		hangman.IncrememntGuesses()
 		hangman.PrintStats()
-
+		// here check if the game is still one
 
 	}
 

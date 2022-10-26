@@ -34,10 +34,10 @@ func underScoreExists() bool {
 }
 
 func CheckIfGameOver() bool {
-	if numberOfGuesses > MaxGuesses || underScoreExists() {
-		return true
+	if numberOfGuesses < MaxGuesses && underScoreExists() {
+		return false
 	}
-	return false
+	return true
 
 }
 

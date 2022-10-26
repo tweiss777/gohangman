@@ -32,11 +32,16 @@ func main() {
 
 		} else {
 			fmt.Printf("Oops, the letter %s doesn't exist here", text)
+			hangman.IncrememntGuesses()
+
 		}
-		hangman.IncrememntGuesses()
 		hangman.PrintStats()
 		// here check if the game is still one
-
+		var gameOver bool = hangman.CheckIfGameOver()
+		if gameOver {
+			unSolved = true
+		}
 	}
+	fmt.Println("Game over")
 
 }

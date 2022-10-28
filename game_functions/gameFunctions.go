@@ -57,8 +57,12 @@ func mapSetup() {
 	}
 }
 
+/*
+* sets up the game
+*/
 func Setup(wordToStore *string) {
 	word = wordToStore
+	*word = strings.Replace(*word,"\n","",1)
 	letters = strings.Split(*word, "")
 	wordLen = len(letters)
 	fmt.Println(correctLetters)

@@ -90,6 +90,11 @@ func CheckIfExists(input string) (bool, int) {
 	if !exists {
 		return false, 0
 	}
+	var occurences = occurences[input]
+	var indexes [] int
+	for i := 0; i < occurences; i++ {
+		indexes = append(indexes,getIndexOfChar(input,letters))
+	}
 	var indexOfChar = getIndexOfChar(input, letters)
 	fmt.Println(indexOfChar)
 	correctLetters[indexOfChar] = input

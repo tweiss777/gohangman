@@ -59,10 +59,10 @@ func mapSetup() {
 
 /*
 * sets up the game
-*/
+ */
 func Setup(wordToStore *string) {
 	word = wordToStore
-	*word = strings.Replace(*word,"\n","",1)
+	*word = strings.Replace(*word, "\n", "", 1)
 	letters = strings.Split(*word, "")
 	wordLen = len(letters)
 	fmt.Println(correctLetters)
@@ -90,14 +90,20 @@ func CheckIfExists(input string) (bool, int) {
 	if !exists {
 		return false, 0
 	}
-	var occurences = occurences[input]
-	var indexes [] int
-	for i := 0; i < occurences; i++ {
-		indexes = append(indexes,getIndexOfChar(input,letters))
+//	var occurences = occurences[input]
+	var indexes []int
+	var existingChars = fmt.Sprint("Existing letters ", letters)
+	fmt.Println(existingChars)
+	for i := 0 ; i < len(letters) ; i++ {
+		if letters[i] == input {
+			indexes = append(indexes, i)
+		}
 	}
-	var indexOfChar = getIndexOfChar(input, letters)
-	fmt.Println(indexOfChar)
-	correctLetters[indexOfChar] = input
+
+	for i := 0; i < len(indexes); i++ {
+		fmt.Println(indexes[i])
+		correctLetters[indexes[i]] = input
+	}
 	return true, 1
 }
 
